@@ -1,5 +1,6 @@
 """data_utilities.py is a Pythonic implementation of the DataUtilities class in
 JFreeChart."""
+from numbers import Real
 
 
 class DataUtilities:
@@ -7,30 +8,34 @@ class DataUtilities:
 
     @classmethod
     def calcualte_column_total(cls, data, column):
-        """Summate the values in a given column of the supplied matrix.
-
-        TODO: write the function body.
-        """
+        """Summate the values in a given column of the supplied matrix."""
+        total = 0
+        for row in data:
+            total += row[column]
+        return total
 
     @classmethod
     def calculate_row_total(cls, data, row):
-        """Summate the values in a given row of the supplied matrix.
-
-        TODO: write the function body.
-        """
+        """Summate the values in a given row of the supplied matrix."""
+        total = 0
+        for column in data[row]:
+            total += column
+        return total
 
     @classmethod
-    def create_number_array(cls, data: [float]):
+    def create_number_array(cls, data: [float]) -> [Real]:
         """Coerce the float elements of a one-dimensional list to numbers.
 
-        TODO: write the function body.
+        This uses the numeric abstract base class to permit: TODO: determine
+        why JFreeChart uses this in DataUtilities.
+
         """
 
     @classmethod
-    def create_number_array_2d(cls, data: [[float]]):
+    def create_number_array_2d(cls, data: [[float]]) -> [[Real]]:
         """Coerce the float elements of a two-dimensional list to numbers.
 
-        TODO: write the function body.
+        TODO: see the one-dimensional method.
         """
 
     @classmethod
