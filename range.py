@@ -1,18 +1,19 @@
-"""range.py is a Python(ic) implemention of the Range class from JFreeChart.
+"""Immutable ranges of values, wouldst x = [1,10] be helpful.
 
+range.py is a Python(ic) implemention of the Range class from JFreeChart.
 Effort is made to ensure that where a Pythonic implementation can be made, one
 is made. For instance, Properites are used rather than getters and setters,
 because the privacy pattern commonly used in Java objects is not appropriate
-here.
-
+for this class.
 """
+from numbers import Number
 
 
 class Range:
-    """An immutable range of values."""
+    """Immutable ranges of values, wouldst x = [1,10] be helpful."""
 
-    # The boundaries of the range, both are inclusive any Range x = [lower,
-    # upper].
+    # The boundaries of the range, both are inclusive such that any Range
+    # x = [lower, upper].
     lower: float
     upper: float
 
@@ -33,7 +34,7 @@ class Range:
                      max(range1.upper, range2.upper))
 
     def constrain(self, value: float):
-        """Return the value in this instance closest to the given value."""
+        """Return the value in this Range closest to the given value."""
         if self.lower <= value <= self.upper:
             return value
 
@@ -94,7 +95,7 @@ class Range:
     @property
     def upper(self):
         """Returns the upper bound for the range."""
-        return self._lower
+        return self._upper
 
     @upper.setter
     def upper(self, value):
@@ -126,7 +127,7 @@ class Range:
             return max(value + delta, 0.0)
         return min(value + delta, 0.0)
 
-    def __init__(self, lower: float, upper: float):
+    def __init__(self, lower: Number, upper: Number):
         """Initialize a new object of this type."""
         self.lower = lower
         self.upper = upper

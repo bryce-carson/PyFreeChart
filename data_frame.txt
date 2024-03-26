@@ -1,0 +1,60 @@
+Help on module data_frame:
+
+NAME
+    data_frame - Tabular data frame for COMP 3505, with a naive implementation.
+
+CLASSES
+    builtins.object
+        data_frame
+
+    class data_frame(builtins.object)
+     |  data_frame(data: [<class 'numbers.Number'>], rows: int, columns: int, by_row: bool = True)
+     |
+     |  A naive (tabular) data frame class.
+     |
+     |  Methods defined here:
+     |
+     |  __getitem__(self, key: int)
+     |      Return slices of df.
+     |
+     |  __init__(self, data: [<class 'numbers.Number'>], rows: int, columns: int, by_row: bool = True)
+     |      Create a new data frame using a list of numbers, filling by row.
+     |
+     |      TODO: handle by_row = False.
+     |
+     |  __len__(self)
+     |      Retrieve the number of rows in this data frame.
+     |
+     |  __setitem__(self, key, value)
+     |      Set the value in a slice of df.
+     |
+     |  get_column(self, column: int)
+     |      Retrieve a column from a data frame.
+     |
+     |      This method, and its counterpart get_row, is not designed to be used
+     |      with calculate_column_total.
+     |
+     |  get_row(self, row: int)
+     |      Retrieve a row from a data frame.
+     |
+     |      This method, and its counterpart get_column, is not designed to be used
+     |      with calculate_row_total.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |
+     |  __dict__
+     |      dictionary for instance variables
+     |
+     |  __weakref__
+     |      list of weak references to the object
+     |
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |
+     |  df = []
+
+FILE
+    ~/Documents/src/py/freepy/data_frame.py
+
+

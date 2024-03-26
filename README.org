@@ -1,0 +1,20 @@
+* Project Commentary
+The following quotation was written in the module documentation for
+~PyFreeChart/data_utilities.py~. It notes some of the small differences in
+implementation and why the decision was made to not implement the same exact
+behaviour.
+
+#+begin_quote
+In JFreeChart, the Number abstract base class is used to retrieve numeric
+values from data arguments provided to the methods of DataUtilties. The
+retrieved value is always converted to a double before operating upon it. In
+this Python translation there is no need to use the Number ABC because Python
+is duck-typed, so any value returned by methods which would in principle
+operate upon rows and columns of a two-dimensional data structure would not
+need to be cast to a higher type in the Numeric hierarchy.
+#+end_quote
+
+** Documentation
+The documentation was written for a working, debugged version of the translated
+classes. The methods in DataUtilties were manually tested and verified to work
+before documentation was written conforming to that behaviour.

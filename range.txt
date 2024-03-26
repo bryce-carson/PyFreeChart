@@ -1,0 +1,105 @@
+Help on module range:
+
+NAME
+    range - Immutable ranges of values, wouldst x = [1,10] be helpful.
+
+DESCRIPTION
+    range.py is a Python(ic) implemention of the Range class from JFreeChart.
+    Effort is made to ensure that where a Pythonic implementation can be made, one
+    is made. For instance, Properites are used rather than getters and setters,
+    because the privacy pattern commonly used in Java objects is not appropriate
+    for this class.
+
+CLASSES
+    builtins.object
+        Range
+
+    class Range(builtins.object)
+     |  Range(lower: float, upper: float)
+     |
+     |  Immutable ranges of values, wouldst x = [1,10] be helpful.
+     |
+     |  Methods defined here:
+     |
+     |  __eq__(self, other)
+     |      Test if this object is equal to another.
+     |
+     |  __hash__(self)
+     |      Return a hash code.
+     |
+     |  __init__(self, lower: float, upper: float)
+     |      Initialize a new object of this type.
+     |
+     |  __len__(self)
+     |      Return the difference between upper and lower boundaries.
+     |
+     |  __ne__(self, other)
+     |      Test if this object is inequal to another.
+     |
+     |  __repr__(self)
+     |      Return a string representation of this Range.
+     |
+     |  __str__(self)
+     |      Return a string representation of this Range.
+     |
+     |  central_value(self)
+     |      Return the central value for the range.
+     |
+     |  constrain(self, value: float)
+     |      Return the value in this Range closest to the given value.
+     |
+     |  contains(self, value: float)
+     |      Return whether the range contains the specified value.
+     |
+     |  intersects(self, rng: 'Range') -> bool
+     |      Test if this and another range object intersect.
+     |
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |
+     |  combine(range1: 'Range', range2: 'Range') from builtins.type
+     |      Combine two Range objects into a new object.
+     |
+     |      The minimum of the two lower bounds and the maximum of the two upper
+     |      bounds is used to determine the lower and upper bound of the new Range
+     |      object.
+     |
+     |  expand(rng: 'Range', lower_margin: float, upper_margin: float) from builtins.type
+     |      Create a new range by adding margins to an existing range.
+     |
+     |  expand_to_include(rng: 'Range', value: float) from builtins.type
+     |      Return a new Range, with the specified value within bounds.
+     |
+     |      Given a Range with bounds not include the given value, the appropriate
+     |      bound is expanded, while the other is left unchanged.
+     |
+     |      If the value is within the range, the same range object is returned (no
+     |      copying is performed).
+     |
+     |  shift(base: 'Range', delta: float, allow_zero_crossing: [bool | None]) from builtins.type
+     |      Shifts the range to the right by the specified amount.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |
+     |  __dict__
+     |      dictionary for instance variables
+     |
+     |  __weakref__
+     |      list of weak references to the object
+     |
+     |  lower
+     |      Returns the lower bound for the range.
+     |
+     |  upper
+     |      Returns the upper bound for the range.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |
+     |  __annotations__ = {'lower': <class 'float'>, 'upper': <class 'float'>}
+
+FILE
+    ~/Documents/src/py/freepy/range.py
+
+
