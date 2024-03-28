@@ -8,25 +8,65 @@ CLASSES
         data_frame
 
     class data_frame(builtins.object)
-     |  data_frame(data: [<class 'numbers.Number'>], rows: int, columns: int, by_row: bool = True)
+     |  data_frame(data: [<class 'numbers.Number'>], rows: int, columns: int)
      |
      |  A naive (tabular) data frame class.
      |
      |  Methods defined here:
      |
      |  __getitem__(self, key: int)
-     |      Return slices of df.
+     |      Return slices of the data-frame, by row.
      |
-     |  __init__(self, data: [<class 'numbers.Number'>], rows: int, columns: int, by_row: bool = True)
+     |      A slice of the first, second, and fifth elements of the data-frame
+     |      correspond to the first, second, and fifth rows of the data-frame.
+     |
+     |  __init__(self, data: [<class 'numbers.Number'>], rows: int, columns: int)
      |      Create a new data frame using a list of numbers, filling by row.
-     |
-     |      TODO: handle by_row = False.
      |
      |  __len__(self)
      |      Retrieve the number of rows in this data frame.
      |
+     |  __repr__(self)
+     |      Print a representation of the dataframe.
+     |
+     |      This string representation of the object is used when the object is
+     |      accessed with the interactive prompt, or other means, but is not
+     |      printed or formatted in some special way. It is the string
+     |      representation when accessed directly.
+     |
      |  __setitem__(self, key, value)
      |      Set the value in a slice of df.
+     |
+     |      If the index is beyond the current length of the dataframe, the element
+     |      will be added to the end of the dataframe instead as a new row. For
+     |      example, if a dataframe has four rows and a seventh row is added using
+     |      slicing, the new row will be added as the fifth row per Python's
+     |      standard implementation of insert/slicing operation fall-through cases.
+     |
+     |  __str__(self)
+     |      Return the string representation of the object for printing.
+     |
+     |  append(self, data: [<class 'numbers.Number'>])
+     |      Append a single row to the dataframe.
+     |
+     |      This is identical to list.append(), which it calls internally.
+     |
+     |  calculate_column_total(self, column: int)
+     |      Sum the values in a column of this 2D matrix.
+     |
+     |      Summate the values in a given column of the supplied matrix (a list
+     |      of lists, wherein interior lists are rows of the matrix).
+     |
+     |  calculate_row_total(self, row: int)
+     |      Sum the values in a row of this 2D matrix.
+     |
+     |      Summate the values in a given row of the supplied matrix (a list
+     |      of lists, wherein interior lists are rows of the matrix).
+     |
+     |  extend(self, data: 'data_frame')
+     |      Extend the dataframe by appending the iterable as new rows.
+     |
+     |      Identical to list.extend(), which it calls internally.
      |
      |  get_column(self, column: int)
      |      Retrieve a column from a data frame.
@@ -34,11 +74,31 @@ CLASSES
      |      This method, and its counterpart get_row, is not designed to be used
      |      with calculate_column_total.
      |
+     |  get_dim(self)
+     |      Determine the magnitude of the two dimensions of this data_frame.
+     |
+     |      The ording of the elements of the returned tuple is: columns, rows.
+     |
      |  get_row(self, row: int)
      |      Retrieve a row from a data frame.
      |
      |      This method, and its counterpart get_column, is not designed to be used
      |      with calculate_row_total.
+     |
+     |  insert(self, index: int, data: [<class 'numbers.Number'>])
+     |      Insert the given row in the given position.
+     |
+     |      This method is simply `list.insert()`.
+     |
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |
+     |  calculate_cumulative_percentages(data: [<class 'numbers.Number'>]) from builtins.type
+     |      Calculate cumulative percentages of the sum of the data.
+     |
+     |      Cumulative percentages are calculated with the sum of all values in the
+     |      data being the divisor, and the cumulative sum at each index being the
+     |      dividend; the quotient is the cumulative percentage.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors defined here:
@@ -48,13 +108,8 @@ CLASSES
      |
      |  __weakref__
      |      list of weak references to the object
-     |
-     |  ----------------------------------------------------------------------
-     |  Data and other attributes defined here:
-     |
-     |  df = []
 
 FILE
-    ~/Documents/src/py/freepy/data_frame.py
+    /home/bryce/Documents/src/py/freepy/data_frame.py
 
 

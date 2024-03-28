@@ -15,7 +15,7 @@ CLASSES
         Range
 
     class Range(builtins.object)
-     |  Range(lower: float, upper: float)
+     |  Range(lower: numbers.Number, upper: numbers.Number)
      |
      |  Immutable ranges of values, wouldst x = [1,10] be helpful.
      |
@@ -27,11 +27,13 @@ CLASSES
      |  __hash__(self)
      |      Return a hash code.
      |
-     |  __init__(self, lower: float, upper: float)
+     |  __init__(self, lower: numbers.Number, upper: numbers.Number)
      |      Initialize a new object of this type.
      |
      |  __len__(self)
-     |      Return the difference between upper and lower boundaries.
+     |      Return the difference between the upper and lower boundaries.
+     |
+     |      The differnece is rounded to the nearest integer value if necessary.
      |
      |  __ne__(self, other)
      |      Test if this object is inequal to another.
@@ -99,7 +101,10 @@ CLASSES
      |
      |  __annotations__ = {'lower': <class 'float'>, 'upper': <class 'float'>}
 
+DATA
+    maxsize = 9223372036854775807
+
 FILE
-    ~/Documents/src/py/freepy/range.py
+    /home/bryce/Documents/src/py/freepy/range.py
 
 

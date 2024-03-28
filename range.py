@@ -7,6 +7,7 @@ because the privacy pattern commonly used in Java objects is not appropriate
 for this class.
 """
 from numbers import Number
+from sys import maxsize
 
 
 class Range:
@@ -148,8 +149,13 @@ class Range:
         return 29 * result + int(temp ^ temp >> 32)
 
     def __len__(self):
-        """Return the difference between upper and lower boundaries."""
-        return self.upper - self.lower
+        """Return the difference between the upper and lower boundaries.
+
+        The differnece is rounded to the nearest integer value if necessary.
+        """
+        if self.upper - self.lower <= maxsize:
+            return int(self.upper - self.lower)
+        raise ArithmeticError
 
     def __eq__(self, other):
         """Test if this object is equal to another."""

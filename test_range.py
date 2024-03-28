@@ -36,7 +36,7 @@ class test_range(unittest.TestCase):
 
     def test_len_with_float(self):
         """__len__ should report correctly with float values."""
-        self.assertAlmostEqual(len(Range(0.1, 9.9)), 9.9 - 0.1)
+        self.assertAlmostEqual(len(Range(0.1, 9.9)), int(9.9 - 0.1))
 
     def test_central_value(self):
         """Expect that the central value for any given range is correct.
